@@ -1,0 +1,81 @@
+* {
+  font-family: "Farro", sans-serif;
+}
+body {
+  align-items: center;
+  background-image: linear-gradient(240deg, #fffdcb, #a29dff);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+main {
+  background-image: linear-gradient(240deg, #fff8df, #606060);
+  border-radius: 10px;
+  padding: 1%;
+}
+button {
+  border: 0;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  appearance: none;
+  text-align: left;
+  margin: 2% 1% 2% 1%;
+}
+
+#Display {
+  background-color: #222222;
+  color: #fff;
+  font-size: 1.714285714em;
+  padding: 0.5em 0.75em;
+  text-align: right;
+  border-radius: 10px;
+  outline: none;
+}
+
+.fila {
+  background-color: transparent;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.fila > * {
+  background-image: linear-gradient(240deg, #fff8df, #c7c7c7);
+  padding: 0.5em 1.25em;
+  position: relative;
+  text-align: center;
+}
+
+.fila > *:active::before,
+.fila > .is-depressed::before {
+  background-color: rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset;
+  content: "";
+  left: 0;
+  opacity: 0.3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  outline: none;
+  border-radius: 10px;
+}
+.igual {
+  background-image: linear-gradient(280deg, #fffedb, #7700ff);
+  grid-column: 1/4;
+  font-size: 1.5vw;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: white;
+  text-align: center;
+  padding: 1%;
+}
