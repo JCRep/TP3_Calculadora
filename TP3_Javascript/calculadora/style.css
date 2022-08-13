@@ -1,5 +1,5 @@
 * {
-  font-family: "Farro", sans-serif;
+  font-family: "DotGothic16", sans-serif;
 }
 body {
   align-items: center;
@@ -7,11 +7,6 @@ body {
   display: flex;
   height: 100vh;
   justify-content: center;
-}
-main {
-  background-image: linear-gradient(240deg, #fff8df, #606060);
-  border-radius: 10px;
-  padding: 1%;
 }
 button {
   border: 0;
@@ -27,12 +22,13 @@ button {
 }
 
 #Display {
-  background-color: #222222;
-  color: #fff;
+  background-color: #050505;
+  color: #0f0;
   font-size: 1.714285714em;
   padding: 0.5em 0.75em;
   text-align: right;
   border-radius: 10px;
+  border-color: #03a062;
   outline: none;
 }
 
@@ -65,7 +61,7 @@ button {
   border-radius: 10px;
 }
 .igual {
-  background-image: linear-gradient(280deg, #fffedb, #7700ff);
+  background-image: linear-gradient(240deg, #fff8df, #c7c7c7);
   grid-column: 1/4;
   font-size: 1.5vw;
 }
@@ -74,8 +70,18 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(#fffedb00, #2fff0030);
   color: white;
   text-align: center;
-  padding: 1%;
+  padding: 4% 1% 1% 1%;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: -1;
+  margin: 0;
+  padding: 0;
 }
