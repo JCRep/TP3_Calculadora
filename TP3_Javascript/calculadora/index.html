@@ -14,41 +14,45 @@
 </head>
 
 <body>
-  <canvas></canvas>
+  <canvas id="canvasDisplay"></canvas>
   <main>
-    <article id="Calculadora">
-      <input id="Display" type="text">
+    <h1><label class="switch">
+        <input type="checkbox" onclick="changeMode()">
+        <span class="slider"></span>
+      </label></h1>
+    <article id="Calculadora" class="calculator-keys">
+      <input id="Display" type="text" value="" disabled>
       <div class="fila">
-        <button class="num">7</button>
-        <button class="num">8</button>
-        <button class="num">9</button>
-        <button class="operacion">÷</button>
+        <button class="num" value="7">7</button>
+        <button class="num" value="8">8</button>
+        <button class="num" value="9">9</button>
+        <button class="operacion" value="/">/</button>
       </div>
       <div class="fila">
-        <button class="num">4</button>
-        <button class="num">5</button>
-        <button class="num">6</button>
-        <button class="operacion">x</button>
+        <button class="num" value="4">4</button>
+        <button class="num" value="5">5</button>
+        <button class="num" value="6">6</button>
+        <button class="operacion" value="x">x</button>
       </div>
       <div class="fila">
-        <button class="num">1</button>
-        <button class="num">2</button>
-        <button class="num">3</button>
-        <button class="operacion">-</button>
+        <button class="num" value="1">1</button>
+        <button class="num" value="2">2</button>
+        <button class="num" value="3">3</button>
+        <button class="operacion" value="-">-</button>
       </div>
       <div class="fila">
-        <button class="ans">Ans</button>
-        <button class="num">0</button>
-        <button class="decimal">.</button>
-        <button class="operacion">+</button>
+        <button class="ans" value="Ans">Ans</button>
+        <button class="num" value="0">0</button>
+        <button class="decimal" value=".">.</button>
+        <button class="operacion" value="+">+</button>
       </div>
       <div class="fila">
-        <button class="igual">=</button>
-        <button><i class="fa-solid fa-delete-left"></i></button>
+        <button class="igual operacion" value="=">=</button>
+        <button class="clear" class="btn" value="clear"><i class="fa-solid fa-delete-left"></i></button>
       </div>
     </article>
   </main>
-  <footer>DIGITALERS 2022 - JUAN CRUZ CASTRO GONZALEZ</footer>
+  <footer id="ft">DIGITALERS 2022 - JUAN CRUZ CASTRO GONZALEZ</footer>
   <script src="main.js"></script>
 </body>
 
