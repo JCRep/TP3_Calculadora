@@ -1,25 +1,20 @@
 var canvas = document.querySelector("canvas"),
   ctx = canvas.getContext("2d");
 
-// Setting the width and height of the canvas
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Setting up the letters
-var letters = "0123456789";
+var letters = "01";
 letters = letters.split("");
 
-// Setting up the columns
 var fontSize = 10,
   columns = canvas.width / fontSize;
 
-// Setting up the drops
 var drops = [];
 for (var i = 0; i < columns; i++) {
   drops[i] = 1;
 }
 
-// Setting up the draw function
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, .1)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -34,8 +29,7 @@ function draw() {
   }
 }
 
-// Loop the animation
-setInterval(draw, 33);
+setInterval(draw, 27);
 
 function changeMode() {
   var i = document.querySelector("#canvasDisplay");
@@ -63,9 +57,7 @@ const calculator = {
 };
 
 function updateDisplay() {
-  // select the element with class of `calculator-screen`
   const display = document.querySelector("#Display");
-  // update the value of the element with the contents of `displayValue`
   display.value = calculator.displayValue;
 }
 
@@ -73,11 +65,8 @@ updateDisplay();
 
 const keys = document.querySelector(".calculator-keys");
 keys.addEventListener("click", (event) => {
-  // Access the clicked element
   const { target } = event;
 
-  // Check if the clicked element is a button.
-  // If not, exit from the function
   if (!target.matches("button")) {
     return;
   }
@@ -124,29 +113,21 @@ function inputDigit(digit) {
 }
 
 function inputDecimal(dot) {
-  // If the `displayValue` property does not contain a decimal point
   if (calculator.waitingForSecondOperand === true) {
     calculator.displayValue = "0.";
     calculator.waitingForSecondOperand = false;
     return;
   }
   if (!calculator.displayValue.includes(dot)) {
-    // Append the decimal point
     calculator.displayValue += dot;
   }
 }
 
 function handleOperator(nextOperator) {
-  // Destructure the properties on the calculator object
   const { firstOperand, displayValue, operacion } = calculator;
-  // `parseFloat` converts the string contents of `displayValue`
-  // to a floating-point number
   const inputValue = parseFloat(displayValue);
 
-  // verify that `firstOperand` is null and that the `inputValue`
-  // is not a `NaN` value
   if (firstOperand == null && !isNaN(inputValue)) {
-    // Update the firstOperand property
     calculator.firstOperand = inputValue;
   } else if (operacion) {
     const result = calculate(firstOperand, inputValue, operacion);
