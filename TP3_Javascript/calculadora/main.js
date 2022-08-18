@@ -94,12 +94,15 @@ keys.addEventListener("click", (event) => {
     return;
   }
 
-  if (target.classList.contains("clear")) {
-    console.log("clear", target.value);
+  if (target.classList.contains("backspace")) {
+    backSpace();
+    updateDisplay();
     return;
   }
-  if (target.classList.contains("ans")) {
-    console.log("ans", target.value);
+
+  if (target.classList.contains("clear")) {
+    resetCalculator();
+    updateDisplay();
     return;
   }
 
@@ -122,6 +125,11 @@ function inputDigit(digit) {
 
 function inputDecimal(dot) {
   // If the `displayValue` property does not contain a decimal point
+  if (calculator.waitingForSecondOperand === true) {
+    calculator.displayValue = "0.";
+    calculator.waitingForSecondOperand = false;
+    return;
+  }
   if (!calculator.displayValue.includes(dot)) {
     // Append the decimal point
     calculator.displayValue += dot;
@@ -142,8 +150,7 @@ function handleOperator(nextOperator) {
     calculator.firstOperand = inputValue;
   } else if (operacion) {
     const result = calculate(firstOperand, inputValue, operacion);
-
-    calculator.displayValue = String(result);
+    calculator.displayValue = `${parseFloat(result.toFixed(4))}`;
     calculator.firstOperand = result;
   }
   calculator.waitingForSecondOperand = true;
@@ -162,4 +169,15 @@ function calculate(firstOperand, secondOperand, operacion) {
   }
 
   return secondOperand;
+}
+
+function backSpace() {
+  calculator.displayValue = calculator.displayValue.slice(0, -1);
+}
+
+function resetCalculator() {
+  calculator.displayValue = "0";
+  calculator.firstOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
 }
